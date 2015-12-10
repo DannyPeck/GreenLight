@@ -1,0 +1,71 @@
+#-----------------------GreenLight: By Danny Peck-----------------------#
+
+#------------------------------The Engine-------------------------------#
+I wrote my program using my own Java Engine / Framework
+My Java Game Engine is based on the Swing and Awt GUI libraries
+
+The basic Components of my Engine:
+    Control Class
+    InputHandler Class
+    SpriteSheet Class
+    Level Class
+    Sprite Class
+    Camera Class
+
+Added Components for individual game use:
+    The subclasses of these such as:
+	Player from Sprite
+	GreenLight from Level
+
+The Control Class coordinates the game loop and level switching.
+It uses two threads to handle updating all of the sprites data and
+players data based on user input, calls the repaint method which in
+turn calls the current game's overloaded paintComponent method. 
+
+The InputHandler Class implements the Key, Mouse and Action Listeners
+stores the information in arrays and returns the information back to
+the control class to be sent to the current level
+
+The SpriteSheet Class which breaks a SpriteSheet into a 2D Array
+of BufferedImages and then associates this SpriteSheet object
+each sprites. (I am thinking to improve this by having them
+globally and they change images based from there)
+
+The Level Class is simply an Abstract class ment for inheritence
+
+The Sprite Class is designed to have many of the desired properties,
+for instant use.  It also has an update method which is the end
+destination of the InputHandler process.  The sprite takes in a
+SpriteSheet object and gets all of its images through that object
+
+The Camera Class simply centers itself around a given sprite but the
+translation process is as of now not built in.
+
+#-------------------------------The Game--------------------------------#
+I wrote a Platformer Game called GreenLight which a platformer rendition
+of the game Red light Green light. The game involves a caller who will 
+say either red light or green line and when the light is green the players
+can move and when the light is red then the player should freeze.
+
+My rendition instead uses a Green and Red Platform to represent a safe
+location or an unsafe location, and uses a timer to represent the time
+between when the caller says red light and green light.
+
+State Transition:
+Using a Swing Timer and a Random Object, I have implemented a Timer that
+will randomly within a given Range of time, switch all of the platforms
+images from their base platform image to their true form, either Red
+or Green!
+	
+		   ->
+            _ Timer Delay _
+    	   /	  	   \
+Base Image	  	     Red / Green Image
+	   \_ Timer Delay _/
+		   <-
+
+If you are touch a Red Platform when they are showing Red you 
+immediately lose the game! The goal is to locate the Green platforms
+and attempt to make it from one green platform to another before the
+timer moves the images back to Red. If you are successful you will
+eventually reach the Goal and you win the game!
