@@ -73,7 +73,7 @@ public class GreenLight extends Level {
 	addPlatformsByRange(0, 5, 14);
 	addPlatformsByRange(8, 15, 12);
 	addPlatformsByRange(18, 24, 9);
-	addPlatformsByRange(13, 15, 6);
+	addPlatformsByRange(12, 15, 6);
 	addPlatformsByRange(7, 10, 8);
 	
 	// Using the same logic as the playerLoc ensures the goal is on a valid block
